@@ -1,0 +1,23 @@
+<%= @post.title %>
+<br>
+<br>
+<%= @post.content %><br>
+
+<a href="<%=edit_post_url%>">Edit Post</a>
+
+<br>Tally:
+<%= @post.vote_tally %>
+<br>
+
+<form action=" <%= upvote_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" name="" value="Upvote">
+</form>
+
+<form action=" <%= downvote_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="submit" name="" value="Downvote">
+</form>
+<br><br><br>
+Comments
+<!--  -->

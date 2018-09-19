@@ -1,0 +1,22 @@
+<h3>Sub: <%= @sub.title %></h3>
+<p> <%= @sub.description %> </p>
+
+<% @sub.posts.each do |post| %>
+<ul>
+  <li>  <a href="<%= post_url(post) %>"><%= post.title %></a> </li>
+
+  <br>Tally:
+  <%= post.vote_tally %>
+  <br>
+
+  <form action=" <%= upvote_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" name="" value="Upvote">
+  </form>
+
+  <form action=" <%= downvote_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="submit" name="" value="Downvote">
+  </form>
+</ul>
+<% end %>
